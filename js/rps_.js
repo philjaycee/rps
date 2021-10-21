@@ -16,12 +16,13 @@ const refresh = document.getElementById("refresh");
 const x = document.querySelector(".user-tool");
 const button = document.querySelector('button');
 
-
+/*
 function getComputerChoice() {
   const choices = ['r','p','s'];
   const randomNumber = Math.floor(Math.random()*3);
   return choices[randomNumber]
 }
+*/
 
 
 
@@ -34,8 +35,8 @@ function resultObject() {
 function resultDraw() {
     winBox.classList.add('drawBox');
     inFo.setAttribute("style", "font-size:36px; color:white;");
-
 }
+
 
 
 
@@ -57,15 +58,55 @@ function lose(userChoice, computerChoice) {
     userScore_span.innerHTML =userScore;
     computerScore_span.innerHTML = computerScore;
     inFo.innerText = "Com 1 Win";
-    
 }
     
+
 
 
 function draw(userChoice, computerChoice) {
     console.log("Draw");
     resultDraw();
     inFo.innerText = "Draw";
+}
+
+
+
+class Choice {
+    constructor(userChoice) {
+      this.userChoice = userChoice;
+      this.getComputerChoice = this.drawPcChoice();
+    }
+    getUserChoice = () => this.userChoice;
+    getComputerChoice = () => this.getComputerChoice;
+    drawPcChoice() {
+      const options = ["r", "p", "s"];
+  
+      return options[Math.floor(Math.random() * options.length)];
+    }
+}
+class Result {
+    static whoWin(userChoice) {
+      const computerChoice = this.Choice.drawPcChoice();
+      if ( userChoice === "r" && computerChoice === "s" || userChoice  === "s" && computerChoice === "p" || userChoice === "p" && computerChoice === "r") return win();
+      else if (userChoice === "s" && computerChoice === "r" || userChoice === "p" && computerChoice === "s" || userChoice === "r" && computerChoice === "p") return lose();
+      else return draw();
+    }
+}
+
+
+
+
+
+/*
+
+class Result {
+    static whoWin(userChoice, computerChoice) {
+        if (userChoice === 'r' && )
+
+    }
+
+
+
 }
 
 
@@ -127,20 +168,21 @@ function compareHands(userChoice) {
         }
     }
 }
+*/
 
 
 
 function main() {
     r_user.addEventListener('click', function() {
         r_user.classList.add('chosen');
-        compareHands("r");
+        whoWin('r');
         addElement1.forEach(addElement3 => {
             addElement3.setAttribute("style", "cursor: not-allowed;pointer-events: none;")
         })
     })
     p_user.addEventListener('click', function() {
         p_user.classList.add('chosen');
-        compareHands("p");
+        whoWin('p');
         addElement1.forEach(addElement3 => {
             addElement3.setAttribute("style", "cursor: not-allowed;pointer-events: none;")
         })
@@ -148,7 +190,7 @@ function main() {
     })
     s_user.addEventListener('click', function() {
         s_user.classList.add('chosen');
-        compareHands("s");
+        whoWin('s');
         addElement1.forEach(addElement3 => {
             addElement3.setAttribute("style", "cursor: not-allowed;pointer-events: none;")
         })

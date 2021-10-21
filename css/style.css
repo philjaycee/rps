@@ -88,7 +88,7 @@ button {
     0% {transform: rotate(20deg);}25% {transform: rotate(10deg);}50% {transform: rotate(0deg);}65% {transform: rotate(-10deg);}85% {transform: rotate(-20deg);}100% {transform: rotate(10deg);}}
 
 
-/*Navigation*/
+
 .Versus-Reset {
     margin: 20px 10px;
 }
