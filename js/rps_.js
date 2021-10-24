@@ -16,60 +16,42 @@ const refresh = document.getElementById("refresh");
 const x = document.querySelector(".user-tool");
 const button = document.querySelector('button');
 
-/*
-function getComputerChoice() {
-  const choices = ['r','p','s'];
-  const randomNumber = Math.floor(Math.random()*3);
-  return choices[randomNumber]
-}
-*/
 
-
-
-
-function resultObject() {
-    winBox.classList.add('winBox'),
-        inFo.setAttribute("style", "font-size:36px; color:white;");
-
-}
-function resultDraw() {
-    winBox.classList.add('drawBox');
-    inFo.setAttribute("style", "font-size:36px; color:white;");
+class objectAdd{
+    constructor(box){
+        this.box = box;
+    }
+    addObject(){
+        winBox.classList.add(this.box)
+    }
 }
 
-
-
+var resultObject = new objectAdd('winBox')
+var resultDraw= new objectAdd('drawBox')
 
 
 function win(userChoice, computerChoice) {
     userScore++;
-    resultObject();
+    resultObject;
     userScore_span.innerHTML =userScore;
     computerScore_span.innerHTML = computerScore;
     inFo.innerText = "Player 1 Win";
 
 }
 
-
-
 function lose(userChoice, computerChoice) {
     computerScore++;
-    resultObject();
+    resultObject;
     userScore_span.innerHTML =userScore;
     computerScore_span.innerHTML = computerScore;
     inFo.innerText = "Com 1 Win";
 }
     
-
-
-
 function draw(userChoice, computerChoice) {
     console.log("Draw");
-    resultDraw();
+    resultDraw;
     inFo.innerText = "Draw";
 }
-
-
 
 class Choice {
     constructor(userChoice) {
@@ -78,42 +60,18 @@ class Choice {
     }
     getUserChoice = () => this.userChoice;
     getComputerChoice = () => this.getComputerChoice;
+
     drawPcChoice() {
       const options = ["r", "p", "s"];
   
       return options[Math.floor(Math.random() * options.length)];
     }
 }
-class Result {
-    static whoWin(userChoice) {
-      const computerChoice = this.Choice.drawPcChoice();
-      if ( userChoice === "r" && computerChoice === "s" || userChoice  === "s" && computerChoice === "p" || userChoice === "p" && computerChoice === "r") return win();
-      else if (userChoice === "s" && computerChoice === "r" || userChoice === "p" && computerChoice === "s" || userChoice === "r" && computerChoice === "p") return lose();
-      else return draw();
-    }
-}
 
-
-
-
-
-/*
-
-class Result {
-    static whoWin(userChoice, computerChoice) {
-        if (userChoice === 'r' && )
-
-    }
-
-
-
-}
-
-
-
+// Fungsi dapat digunakan
 
 function compareHands(userChoice) {
-    const computerChoice = getComputerChoice();
+    const computerChoice = new Choice();
     if(userChoice == computerChoice){
         if(computerChoice=="r"){
             draw();
@@ -168,21 +126,19 @@ function compareHands(userChoice) {
         }
     }
 }
-*/
-
 
 
 function main() {
     r_user.addEventListener('click', function() {
         r_user.classList.add('chosen');
-        whoWin('r');
+        compareHands('r');
         addElement1.forEach(addElement3 => {
             addElement3.setAttribute("style", "cursor: not-allowed;pointer-events: none;")
         })
     })
     p_user.addEventListener('click', function() {
         p_user.classList.add('chosen');
-        whoWin('p');
+        compareHands('p');
         addElement1.forEach(addElement3 => {
             addElement3.setAttribute("style", "cursor: not-allowed;pointer-events: none;")
         })
@@ -190,7 +146,7 @@ function main() {
     })
     s_user.addEventListener('click', function() {
         s_user.classList.add('chosen');
-        whoWin('s');
+        compareHands('s');
         addElement1.forEach(addElement3 => {
             addElement3.setAttribute("style", "cursor: not-allowed;pointer-events: none;")
         })
@@ -198,9 +154,6 @@ function main() {
 }
 
 main();
-
-
-
 
 function Refresh() {
     refresh.addEventListener('click', function () {
