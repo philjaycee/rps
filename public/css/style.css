@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+.nav_links__ li  {
+    display:inline-block;
+    align-items:left;
+
+}
+
+.nav_links__ li a {
+    font-family:"Bebas Neue", sans-serif;
+    display:inline-block;
+    font-size:25px;
+    color: white;
+    align- items: left;
+    justify-content:space-between;
+
+}
+
+
+.nav_links li  {
+    display:inline-block;
+    padding: 0px 20px;
+    align-items:left;
+
+}
+
+
+.nav_links li a {
+    font-family:"Bebas Neue", sans-serif;
+    display:inline-block;
+    padding: 0px 20px;
+    align-items:left;
+    color:white;
+
+}
+
+.nav_links_1 li {
+    display:inline-block;
+    padding: 0px 20px;
+    align-items: right;
+}
+
+
+.nav_links_1 li a {
+    font-family:"Bebas Neue", sans-serif;
+    display:inline-block;
+    padding: 0px 20px;
+    align- items: center;
+    justify-content:space-between;
+    color:white;
+}
+
+
+
+
+.navbar-brand{
+    color:white;
+}
+
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 30px 10px;
+    opacity: 0.5;
+    background-color: black;
+}
+
+
+
+
+
+body {
+    margin:0;
+    font-family: 'Bebas Neue', sans-serif ;
+    text-align: center;
+}
+
+
+
+.button{
+    display:inline-block;
+    font-weight: 300;
+    line-height:2;
+    text-align:center;
+    border: 1px solid transparent;
+    color:black;
+    
+}
+
+.button-accent {
+   
+    border-color: #ffc107;
+    
+}
+
+
+.button-lg>button,button-lg{
+    padding: .1em 0.1em;
+    font-size: 1.25em;
+    border-radius: .1em;
+}
+
+
+
+.header-info-col,  {
+    max-width: 100vw !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+
+
+.header-title{
+    width: 100%;
+    font-family: 'Bebas Neue';
+    padding-top: 10%;
+    font-size: 4rem;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 5rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 3.5625rem;
+}
+    
+.tengah{
+    text-align: center;
+}
+
+.header-title span{
+    width: 100%;
+    font-family: 'Bebas Neue';
+    padding-top: 10%;
+    font-size: 1rem;
+
+    line-height: 5rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 3.5625rem;
+}
+
+.header-style{
+    width:100%;
+    height:90%;
+    color: white;
+    text-align:center;
+}
+
+
+
+
+.header-home1{ 
+    height:100vh;
+    background-image: url(../assets/main-bg.jpg);
+    background-size: cover;
+    background-position= center;
+}
+
+
+
+
+
+
+.img-kanan{
+    size: 50px 50px;
+}
+
+
+
+
+.img-kanan{
+    grid-areas:gambar1;
+}
+
+.title1{
+    grid-areas:title1;
+}
+
+.title1{
+    font-size: 1em;
+    color: #edf0f1;
+    align-items:left;
+    
+}
+
+.title1 span{
+    font-weight: 300;
+    font-size: 5rem;
+    margin-bottom: 0.2rem;
+}
+
+.imgresize{
+    height: 400px;
+    width:600px;
+}
+
+.imgkanan{
+    align-items:center;
+}
+
+
+.traditionalgames{
+    display: flex;
+    position:relative;
+    justify-content: space-between;
+    align-items: center;
+    height:100vh;
+    background-image: url(../assets/the-games-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat:no-repeat;
+}
+
+
+.traditionalgames .img-kanan{
+    display: flex;
+    justify-content:flex-start;
+    width: 75%;
+    height: 75%;
+    
+    padding-bottom: 2em;
+    padding-right: 2em;
+  
+}
+
+.tl-left-side{
+    color: white;
+    max-width: 50vh;
+    text-align:center;
+}
+
+.slider{
+    width:800px;
+    height:500px;
+    border-radius:10px;
+    overflow:hidden;
+
+}
+.slides{
+    width:500%;
+    height: 500px;
+    display:flex;
+}
+
+.slides input{
+    display:none;
+}
+
+.slide{
+    width:20%;
+    transition:2s;
+}
+
+.slide img{
+    widht:1000px;
+    height:500px;
+}
+
+.navigation-manual{
+    position: absolute;
+    width: 800px;
+    margin-top: 400px;
+    display:flex;
+    justify-content:center;
+
+}
+
+.manual-btn{
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+   margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background: white;
+}
+
+#radio1:checked ~ .first{
+    margin-left:0;
+}
+
+#radio2:checked ~ .first{
+    margin-left:-20%;
+}
+
+#radio3:checked ~ .first{
+    margin-left:-40%;
+}
+
+#radio4:checked ~ .first{
+    margin-left:-60%;
+}
+
+
+
+
+
+
+.features{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../assets/features.jpg);
+    background-size:cover;
+
+}
+
+.features-contents {
+    color: white;
+    padding-top: 14rem;
+}
+
+
+
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.mb-2 {
+    margin-bottom: .5rem;
+}
+
+
+.tl-info-title {
+    font-size: 1.5rem;
+    color:#df8613;
+}
+
+.tl-info-content {
+    font-size: 1.5rem;
+    color: white;
+    line-height: 1.5rem;
+}
+
+.timeline-lingkaran{
+   padding:2px;
+   margin: 2px 0;
+   line-height:2;
+   cursor: pointer;
+   position: relative;
+   right:-20px;
+   color:beige;
+   border-left:2px solid white;
+
+}
+
+.timeline-lingkaran::after{
+    content:"";
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgb(250, 246, 246);
+    position:absolute;
+    left: -8px;
+    border-radius:100%;
+    background: #df8613;
+}
+
+.timelinel1{
+    padding:2px;
+    margin: 2px 0;
+    line-height:2;
+    cursor: pointer;
+    position: relative;
+    right:-20px;
+    color:beige;
+   
+ 
+ }
+ 
+ .timelinel1::after{
+     content:"";
+     width: 14px;
+     height: 14px;
+     border: 2px solid rgb(250, 246, 246);
+     position:absolute;
+     left: -8px;
+     border-radius:100%;
+ }
+
+
+
+
+
+.timelinel2{
+    padding:2px;
+    margin: 2px 0;
+    line-height:2;
+    cursor: pointer;
+    position: relative;
+    right:-20px;
+    color:beige;
+    
+ 
+ }
+ 
+ .timelinel2::after{
+     content:"";
+     width: 14px;
+     height: 14px;
+     border: 2px solid rgb(250, 246, 246);
+     position:absolute;
+     left: -8px;
+     border-radius:50%;
+    
+ }
+
+
+.sysrequire{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../assets/requirements.png);
+    background-size : cover;
+    padding-top: 10%;
+    text-align:center;
+}
+
+.req-info-top{
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sysreq h1{
+    font-size: 24px;
+    text-align: left;
+    text-transform: uppercase;
+    padding-bottom: 5vh;
+}
+
+.rq-table-title{
+    color: white;
+}
+
+.table{
+    
+    width: 100%;
+    margin-bottom:1rem;
+    color: #212529;
+    vertical-align: top;
+    
+    
+}
+
+
+.requirements-info {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #df8613;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+
+.requirements-info-content {
+    color: white;
+    font-family: 'Open sans', Arial, Helvetica, sans-serif;
+    line-height: 1rem;
+}
+
+.score {
+    width: 100%;
+    height: 100vh;
+    background-image:  url(../assets/top-score-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 5%;
+}
+
+.papan-kiri-atas{
+    color:white;
+
+}
+
+.papan-kiri-atas h3 {
+    color:#df8613;
+
+}
+
+
+
+.container_{
+    min-height: 100vh;
+    display:flex;
+    justify-content:center;
+    margin-top:-10em;
+    
+    
+}
+
+.card-header-row{
+    width:
+
+}
+
+.card-header-row ul{
+    list-style:none;
+
+}
+
+.card-header-row ul li{
+    padding: 10px 10px;
+    background-color:#df8613;
+    border-radius:0px;
+    margin-bottom:30px;
+    margin-left:-20px;
+    
+}
+
+.card-header-row ul li:last child{
+    margin-bottom:0;
+}
+
+.card-header-content h1 {
+    font-size:25px;
+    font-weight: 500;
+    line-height:30px;
+}
+
+
+
+@media only screen and (min-width:768px){
+.card-header-row ul li{
+    width: 50%;
+    margin-bottom: 2px;
+    position:relative;
+}
+
+.card-header-row ul li:nth-child(odd){
+    float:right;
+    clear:left;
+}
+
+.card-header-row ul li:nth-child(even){
+    float:left;
+    clear:right;
+}
+}
+
+
+
+.card-header-content h1  {
+    color:white;   
+    font-family:"Bebas Neue", sans-serif;
+}
+
+.card-header-content h3 {
+    color:white;
+    font-family:"Bebas Neue", sans-serif;
+}
+
+.card-header-content h9 {
+    color: rgb(63, 59, 59);
+    font-family:"Bebas Neue", sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

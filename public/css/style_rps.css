@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Poppins:400,500,700,800");
+
+div {
+    display:block;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-weight: bold;
+    background-color:#724C21 ;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+a {
+    color: #724C21;
+    text-decoration: none;
+} a:hover {background-color: gold;border-radius: 150px;}
+
+.back{
+    display: grid;
+    place-items: center;
+}
+.back:hover {
+    transform: scale(1.5);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    margin-left: 27px;
+}
+.brand h1{
+    margin-left: 17px;
+font-size: 1.5em;
+width: 100%;
+}
+
+section{
+    margin: 5px auto;
+}
+.game-area{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    text-align: left;
+}
+.player-name {
+    font-size: 50px;
+}
+.allignK{
+    width: 100%;
+}
+.user-tool {
+    
+}
+.user-tool img{
+    width: 70%;
+}
+button {
+    background-color: Transparent;
+    border-color: transparent;
+    width: 30%;   
+    height: 120px;
+}
+.your-tool{
+        cursor: pointer;
+
+}
+
+.your-tool:hover {
+    transform: rotate(20deg);
+    animation-name: buttonAnimate;
+    animation-duration: 1.5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}@keyframes buttonAnimate {
+    0% {transform: rotate(20deg);}25% {transform: rotate(10deg);}50% {transform: rotate(0deg);}65% {transform: rotate(-10deg);}85% {transform: rotate(-20deg);}100% {transform: rotate(10deg);}}
+
+
+
+.Versus-Reset {
+    margin: 20px 10px;
+}
+
+.Versus-Reset h1 {
+    font-size: 44px;
+    color: black;
+    font-weight: var bold;
+}
+
+.Versus-Reset img {
+}
+ 
+
+.chosen{
+    background-color: #C4C4C4;
+    border-radius: 30px;
+    
+}
+
+.chosen_{
+    background-color: red;
+    border-radius: 30px;
+
+}
+
+.chosen__{
+    background-color: green;
+    border-radius: 30px;
+
+}
+
+
+
+.boxR {
+    
+
+}
+
+.winBox {
+    height: 100px;
+    display: grid;
+    place-items: center;
+    background: #4C9654;
+    border-radius: 10px;
+    margin:  15px auto;
+    padding: 15px;
+    
+}
+
+.drawBox {
+    height: 100px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    margin:  15px auto;
+    padding: 15px;
+    background: #313531;
+    border-radius: 10px;
+    
+}
+
+.lostBox {
+    height: 100px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    margin:  15px auto;
+    padding: 15px;
+    background: #f5f0ef;
+    border-radius: 10px;
+    
+}
+
+
+
+
+.score-board {
+    margin: 20px auto;
+    border: 3px solid black;
+    border-radius: 4px;
+    text-align: center;
+    width: 75px;
+    color : black;
+    font-size: 10px;
+    padding: 15px 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+@media(min-width: 750px){
+.game-area{
+    flex-direction: row;
+    transform: translateX(20%);
+}
+.used{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+        
+}
+.user-tool{
+    align-self: center;
+    width: 200px;
+    height: 200px;
+}
+.user-tool img{
+    width: 90%;}
+.Versus-Reset img {
+    width: 50px;
+    transform: translatey(350%)
+}
+
+
+
+.boxR {
+    margin-top: 150px;
+    display: grid;
+    place-items: center;
+
+}
+
+.player-name{
+    margin-left: 10px;
+}
+
+
+.Versus-Reset-scoreboard {
+    margin: 2em 5em;
+    width: 150px;
+    height: 20vh;
+        
+}
+.Versus-Reset h1{
+    font-size: 100px;
+    }
+.user-choice{
+    margin: auto 5% 0 0
+}
+.Com-Choice{
+    margin: auto 0 0 5%;
+    margin-right: 400px;
+
+}
+}
+
+
+
+
+
