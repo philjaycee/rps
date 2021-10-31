@@ -8,11 +8,12 @@ const router = require('./router')
 app.use(router)
 
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(bodyParser());
+
 
 var admin__ = {
     email: "Admin123@gmail.com",
-    password: 123
+    password: "123"
 }
 
 var users = [ ]
@@ -23,20 +24,18 @@ app.listen(port, ()=>{ console.log("lostening the server")})
 
 app.use(express.static('public'))
 
-
-
-app.post('/login', urlencodedParser, function (req,res) {
+app.post('/login',  function (req,res) {
 
     const {email, password} = req.body
     if (req.body.email == admin__.email && req.body.password == admin__.password) {
         res.send('Admin')
     }
     else if (req.body.email == admin__.email && req.body.password != admin__.password) {
-        res.send('Salah Pass')
+        res.send('Admin Salah Pass')
     } else {
     var user = req.body
     users.push(user);
-    res.send('User Login')
+    res.send(users)
     }
 });
 
