@@ -42,7 +42,7 @@ app.post('/login', urlencodedParser, function (req,res) {
     } else {
     var user = req.body
     users.push(user);
-    res.send(users)
+    res.send('User Login')
     }
 });
 
