@@ -4,6 +4,10 @@ let app = express()
 let port = process.env.port || 9090
 
 
+const router = require('./router')
+app.use(router)
+
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 var admin__ = {
@@ -19,17 +23,7 @@ app.listen(port, ()=>{ console.log("lostening the server")})
 
 app.use(express.static('public'))
 
-app.get('/', (req,res) => {
-    res.render('index_home');
-});
 
-app.get('/game', (req,res) => {
-    res.render('index_rps');
-});
-
-app.get('/login', (req,res) => {
-    res.render('base', {title:"Login System"})
-})
 
 app.post('/login', urlencodedParser, function (req,res) {
 
@@ -37,7 +31,7 @@ app.post('/login', urlencodedParser, function (req,res) {
     if (req.body.email == admin__.email && req.body.password == admin__.password) {
         res.send('Admin')
     }
-    else if (req.body.email == admin__.email && req.body.password != admin__.passwor) {
+    else if (req.body.email == admin__.email && req.body.password != admin__.password) {
         res.send('Salah Pass')
     } else {
     var user = req.body
@@ -50,6 +44,4 @@ app.post('/login', urlencodedParser, function (req,res) {
 app.use((req,res) =>{
     res.status(404).render('404') 
 });
-
-
 
