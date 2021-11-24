@@ -7,10 +7,6 @@ let port = process.env.port || 9090
 const router = require('./router')
 app.use(router)
 
-
-app.use(bodyParser());
-
-
 var admin__ = {
     email: "Admin123@gmail.com",
     password: "123"
@@ -19,19 +15,20 @@ var admin__ = {
 var users = [ ]
 
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended:true}));
+app.use(express.static('public'))
 
 app.listen(port, ()=>{ console.log("lostening the server")})
-
-app.use(express.static('public'))
 
 app.post('/login',  function (req,res) {
 
     const {email, password} = req.body
     if (req.body.email == admin__.email && req.body.password == admin__.password) {
-        res.send('Admin')
+        res.render('index_home')
     }
     else if (req.body.email == admin__.email && req.body.password != admin__.password) {
         res.send('Admin Salah Pass')
+        res.render('base', {title:"Login System"})
     } else {
     var user = req.body
     users.push(user);
