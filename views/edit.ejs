@@ -12,11 +12,11 @@
     <a class="btn btn-primary" href="/admin">All Users </a>
     <form action="/update/<%= user.id %>" method="POST">
         <div class="form-group">
-          <label for="exampleInputEmail1">Name</label>
+          <label for="exampleInputEmail1">Username</label>
           <input type="text" name = "name" value="<%= user.username %>" class="form-control">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
+            <label for="exampleInputEmail1">Password</label>
             <input type="text" name = "password" value="<%= user.password %>" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Edit User</button>

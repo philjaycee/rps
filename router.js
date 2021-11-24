@@ -21,6 +21,24 @@ router.get('/login', (req,res) => {
 
 /// buat crud
 
+//create
+router.get('/create', async(req,res) => {
+    await res.render('create')
+})
+
+router.post('/create', async(req,res) =>{
+    const {username,password} = req.body
+    try{
+        const user = await User.create({username,password})
+        return res.redirect('/admin')
+    }
+    catch(err){
+    console.log(err)
+        return res.status(500).json(err)
+    }
+})
+
+//read
 router.get('/admin', (req,res) => {
     User.findAll()
      .then(articles => {
@@ -30,29 +48,9 @@ router.get('/admin', (req,res) => {
      })
  })
 
-router.get('/admin', (req,res) => {
-    res.render('articles/main')
-})
-    
-router.get('/create', async(req,res) => {
-    await res.render('create')
-})
-
-
-router.post('/create', async(req,res) =>{
-    const {username,password} = req.body
-    try{
-        const user = await User.create({username,password})
-        return res.render('articles/main')
-    }
-    catch(err){
-    console.log(err)
-        return res.status(500).json(err)
-    }
-})
-
+//update
 router.get('/edit/:id', async(req,res) => {
-    const {id} = await req.params;
+   const {id} = await req.params;
    const user = await User.findOne({
        where:{
            id:id
@@ -84,15 +82,12 @@ router.get('/edit/:id', async(req,res) => {
 
 
 router.post('/update/:id', async(req,res) => {
-    const {id} = req.params;
-   const data = req.body;
-   const selector = {where: {id:id}}
+  const {id} = req.params;
+  const data = req.body;
+  const selector = {where: {id:id}}
   await User.update(data,selector).catch(error=>console.log(error))
 
      res.redirect('/admin')
-
-
-
 
     /*
     User.update({
@@ -109,5 +104,36 @@ router.post('/update/:id', async(req,res) => {
       })
       */
 })
+
+
+//delete
+router.get('/delete/:id', async(req,res) => {
+    const {id} = await req.params;
+    const user = await User.destroy({
+        where:{
+            id:id
+        },
+        
+        raw:true
+        
+    }).catch(error=> console.log(error))
+    
+    res.redirect('/admin')
+ 
+     /*
+     User.update({
+         name: req.body.name,
+         email: req.body.email,
+         phone: req.body.phone
+     }, {
+        where: { id: req.params.id}
+     })
+       .then(article =>{
+           res.status(201).json(article)
+       }) .catch(err => {
+           res.status(422).json("Can't create article")
+       })
+       */
+ })
 
 module.exports = router
