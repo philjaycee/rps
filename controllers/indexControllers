@@ -46,5 +46,12 @@ module.exports = {
             raw:true
         }). catch(error => console.log(error))
         res.redirect('/admin')
-    }
+    },
+    register: (req,res, next) => {
+        User.register(req.body)
+          .then(() => {
+              res.redirect('/login')
+          })
+          .catch(err => next(err))
+    },
 }
