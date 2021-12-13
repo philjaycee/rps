@@ -18,5 +18,9 @@ module.exports = {
                    format(user)
                )
            })
-    }
+    },
+    whoami: (req,res) => {
+        const currentUser = req.user;
+        res.json(currentUser)
+    },
 }

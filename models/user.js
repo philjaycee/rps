@@ -5,7 +5,7 @@ const {
 
 
 const bcrypt = require('bcrypt');
-const { JsonWebTokenError } = require('jsonwebtoken');
+const  jwt  = require('jsonwebtoken');
 
 
 module.exports = (sequelize, DataTypes) => {
@@ -52,10 +52,10 @@ module.exports = (sequelize, DataTypes) => {
 
     const rahasia = 'Ini rahasia ga boleh disebar-sebar'
 
-    const token = JsonWebTokenError.sign(payload,rahasia)
+    const token = jwt.sign(payload,rahasia)
 
     return token
-    }
+  }
 
   };
   User.init({
