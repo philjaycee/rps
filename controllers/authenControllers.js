@@ -1,7 +1,6 @@
 const { User } = require('../models')
 const passport = require('../lib/passport')
 
-
 module.exports = {
     
     loginGet: async(req,res) => {

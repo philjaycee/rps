@@ -6,7 +6,7 @@ let app = express()
 let port = process.env.port || 9090
 const { sequelize, User, Profile, History } =  require('./models')
 const authen = require('./controllers/authenControllers')
-
+const restrict = require('./middleware/restrict')
 
 var admin__ = {
     username: "Admin123@gmail.com",
@@ -47,8 +47,6 @@ main()
 const router = require('./router')
 app.use(router)
 
-
-
 app.post('/login',  function (req,res,next) {
     const {email, password, token} = req.body
     if (req.body.username == admin__.username && req.body.password == admin__.password) {
@@ -61,6 +59,9 @@ app.post('/login',  function (req,res,next) {
 app.get('/login', authen.loginGet)
 
 app.post('/login', authen.loginPost)
+
+app.get('/login', restrict, (req,res) => res.redirect('/game'))
+
 
 /*
 app.post('/login', async (req,res,next) => {
@@ -77,12 +78,11 @@ app.post('/login', async (req,res,next) => {
     }
 })
 */
-    
-app.get('/login')
 
 app.use((req,res) =>{
     res.status(404).render('404') 
 });
+
 
 
 app.listen(port, ()=>{ console.log("lostening the server")})
