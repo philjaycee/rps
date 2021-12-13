@@ -5,11 +5,11 @@ const flash = require('express-flash')
 let app = express()
 let port = process.env.port || 9090
 const { sequelize, User, Profile, History } =  require('./models')
-
+const authen = require('./controllers/authenControllers')
 
 
 var admin__ = {
-    email: "Admin123@gmail.com",
+    username: "Admin123@gmail.com",
     password: "123"
 }
 
@@ -50,17 +50,35 @@ app.use(router)
 
 
 app.post('/login',  function (req,res,next) {
-    const {email, password} = req.body
-    if (req.body.email == admin__.email && req.body.password == admin__.password) {
+    const {email, password, token} = req.body
+    if (req.body.username == admin__.username && req.body.password == admin__.password) {
         res.redirect('/admin')
-    }
-    else if (req.body) {
-        res.redirect('/game')
     } else {
         next();
     }
 });
 
+app.get('/login', authen.loginGet)
+
+app.post('/login', authen.loginPost)
+
+/*
+app.post('/login', async (req,res,next) => {
+    const { email, password, token} = req.body
+        if (req.body.email == admin__.email && req.body.password == admin__.password) {
+        return res.redirect('/admin')
+        }
+        else(req.body){
+        return next()
+        }
+    
+    .catch(err){
+        return res.status(400).json(err)
+    }
+})
+*/
+    
+app.get('/login')
 
 app.use((req,res) =>{
     res.status(404).render('404') 
